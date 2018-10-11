@@ -30,4 +30,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
           db.execSQL("drop table if exists "+MARSHAL_ARTS_TABLE);
           onCreate(db);
     }
+    //create a method add martial art
+    public void  addMartialArt(MarshalArt marshalArtObject){
+        SQLiteDatabase database = getWritableDatabase();
+        String addMartailArtSQLCommand = "insert into "+MARSHAL_ARTS_TABLE+
+                " values(null,'"+marshalArtObject.getMartialArtName()
+                +"', '"+marshalArtObject.getMartialArtPrice()+
+                "', "+marshalArtObject.getMartialArtColor()+
+                "')";
+        database.execSQL(addMartailArtSQLCommand);
+        database.close();
+
+    }
 }
