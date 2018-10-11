@@ -6,7 +6,7 @@ public class MarshalArt {
     private double martialArtPrice;
     private String martialArtColor;
 
-    public MarshalArt(int id,String name,int price, String color){
+    public MarshalArt(int id,String name,double price, String color){
       setMartialArtID(id);
       setMartialArtName(name);
       setMartialArtColor(color);

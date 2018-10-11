@@ -1,8 +1,11 @@
 package com.example.dell.udemyapp78maclub.model;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+
+import java.util.ArrayList;
 
 public class DatabaseHandler extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "martialArtsDatabase";
@@ -63,6 +66,21 @@ public class DatabaseHandler extends SQLiteOpenHelper {
                     "' " +"where "+ ID_KEY +" = "+ martialArtID;
              database.execSQL(modifyMartialArtSQLCommand);
              database.close();
+    }
+    public ArrayList<MarshalArt> returnAllMartialArtObject(){
+       SQLiteDatabase database = getWritableDatabase();
+       String sqlQueryCommand = "select * from "+MARSHAL_ARTS_TABLE;
+        Cursor cursor = database.rawQuery(sqlQueryCommand,null);
+
+        ArrayList<MarshalArt> marshalArts  = new ArrayList<>();
+        while (cursor.moveToNext()){
+            MarshalArt currentMartialArtObject = new MarshalArt(Integer.parseInt(cursor.getString(0)),cursor.getString(1),
+                    cursor.getDouble(2),cursor.getString(3));
+            marshalArts.add(currentMartialArtObject);
+        }
+        database.close();
+        return marshalArts;
+
     }
 
 }
