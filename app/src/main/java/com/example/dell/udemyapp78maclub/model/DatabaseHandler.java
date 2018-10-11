@@ -42,4 +42,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         database.close();
 
     }
+    //delete martial art object
+    public void deleteMarshalArtObjectFromDatabaseByID(int id){
+        //reference to sqlite writable database
+
+        SQLiteDatabase database = getWritableDatabase();
+        //delete
+        String deleteMarshalArtSQLCommand = "delete from "+MARSHAL_ARTS_TABLE+
+                " where "+ID_KEY+" = "+ id;
+        database.execSQL(deleteMarshalArtSQLCommand);
+        database.close();
+    }
+
 }
