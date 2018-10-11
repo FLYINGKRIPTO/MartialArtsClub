@@ -53,5 +53,16 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         database.execSQL(deleteMarshalArtSQLCommand);
         database.close();
     }
+    //method to modify
+    public void modifyMartialArtObject(int martialArtID,String martialArtName,double martialArtPrice,String martialArtColor){
+           SQLiteDatabase database = getWritableDatabase();
+            String modifyMartialArtSQLCommand = "update" + MARSHAL_ARTS_TABLE+
+                    " set"+NAME_KEY+" = '" + martialArtName +
+                    "', "+PRICE_KEY+" = '" +martialArtPrice +
+                    "', "+COLOR_KEY+" = '" +martialArtColor +
+                    "' " +"where "+ ID_KEY +" = "+ martialArtID;
+             database.execSQL(modifyMartialArtSQLCommand);
+             database.close();
+    }
 
 }

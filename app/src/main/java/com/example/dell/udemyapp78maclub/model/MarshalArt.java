@@ -3,7 +3,7 @@ package com.example.dell.udemyapp78maclub.model;
 public class MarshalArt {
     private int martialArtID;
     private String martialArtName;
-    private int martialArtPrice;
+    private double martialArtPrice;
     private String martialArtColor;
 
     public MarshalArt(int id,String name,int price, String color){
@@ -21,7 +21,7 @@ public class MarshalArt {
         return martialArtName;
     }
 
-    public int getMartialArtPrice() {
+    public double getMartialArtPrice() {
         return martialArtPrice;
     }
 
@@ -37,7 +37,7 @@ public class MarshalArt {
         this.martialArtName = martialArtName;
     }
 
-    public void setMartialArtPrice(int martialArtPrice) {
+    public void setMartialArtPrice(double martialArtPrice) {
         this.martialArtPrice = martialArtPrice;
     }
 
